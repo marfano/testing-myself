@@ -1,6 +1,7 @@
 from django.db import models
 
-# Create your models here.
+from apps.schedule.models import Schedule
+import apps.course.courses_settings as Settings
 
 
 class Person(models.Model):
@@ -9,7 +10,7 @@ class Person(models.Model):
     email = models.CharField('Email', max_length= 200, null = False, blank = False)
     name = models.CharField('Nombre', max_length= 200, blank = False, null = False)
     last_name = models.CharField('Apellido', max_length = 220, blank = False, null = False)
-    # disponibility = models.ManyToManyField('Horarios') # Many to Many to DateTime
+    disponibility = models.ManyToManyField(Schedule)
 
     class Meta:        
         abstract = True
@@ -17,31 +18,9 @@ class Person(models.Model):
 class Student(Person):
     """Model definition for Student - type of Person"""
 
-    # Levels to choice
-    begginer = 'B'
-    pre_intermediate = 'PI'
-    intermediate = 'I'
-    upper_intermediate = 'UI'
-    advanced = 'A'
-    LEVEL_CHOICES = [
-        (begginer, 'Begginer'),
-        (pre_intermediate, 'Pre_Intermediate'),
-        (intermediate, 'Intermediate'),
-        (upper_intermediate, 'Upper-intermediate'),
-        (advanced, 'Advanced'),
-    ]
-
-    # Modalities to choice
-    individual = 'I'
-    grupal = 'G'
-    MODALITY_CHOICES = [
-        (individual, 'Individual'),
-        (grupal, 'Grupal'),
-    ]
-
     # Choices
-    modality = models.CharField(max_length=20, choices = MODALITY_CHOICES, default = grupal)
-    level = models.CharField(max_length=20, choices = LEVEL_CHOICES, default = begginer) 
+    modality = models.CharField(max_length=20, choices = Settings.modalities, default = 'Grupal')
+    level = models.CharField(max_length=20, choices = Settings.levels, default = 'Begginer') 
 
     class Meta:
         """Meta definition for Student"""

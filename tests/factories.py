@@ -1,13 +1,12 @@
 import pytest
 from faker import Faker
 import factory
-from ddf import G,F
-
-from faker.providers import BaseProvider
+from ddf import G, F
 
 from apps.person.models import Student, Teacher
 from apps.schedule.models import Schedule
-from apps.course.models import Course, Settings
+from apps.course.models import Course
+import apps.course.courses_settings as Settings
 
 fake = Faker()
 
@@ -24,15 +23,14 @@ fake.add_provider(HourProvider)
 class ScheduleFactory(factory.Factory):  
     class Meta:
         model = Schedule
-
+    
     day = fake.custom_day()
     hour = fake.custom_hour()
-
 
 class StudentFactory(factory.Factory):  
     class Meta:
         model = Student
-
+    
     email = fake.custom_email()
     name = fake.name()
     last_name = fake.last_name()
@@ -43,7 +41,7 @@ class StudentFactory(factory.Factory):
 class TeacherFactory(factory.Factory):  
     class Meta:
         model = Teacher
-
+    
     email = fake.custom_email()
     name = fake.name()
     last_name = fake.last_name()
@@ -56,19 +54,6 @@ class CourseFactory(factory.Factory):
     def create_course():
         return G(Course, teacher=F(), schedule=F(day=fake.custom_day(), hour=fake.custom_hour())) 
 
+def settings_setup():  
+    return Settings
 
-class SettingsFactory(factory.Factory):  
-    class Meta:
-        model = Settings
-
-    min_day = fake.list_days()
-    max_day = fake.list_days()
-
-    min_hour = fake.list_hours()
-    max_hour = fake.list_hours()
-
-    tolerance = fake.pyint()
-    levels = fake.list_levels()
-
-    modalities = fake.list_days()
-    capacity = fake.pyint()

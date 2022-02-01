@@ -7,8 +7,8 @@ fake = Faker()
 class ModalityProvider(BaseProvider):
 
     def list_modalities(self):
-        modality = ['Grupal', 'Individual']
-        return modality
+        modalities = ['Grupal', 'Individual']
+        return modalities
 
     def custom_modality(self):
         # This select a random modality from the list and return it
@@ -17,9 +17,9 @@ class ModalityProvider(BaseProvider):
 
 class LevelProvider(BaseProvider):
 
-    def list_levels():
-        level = ['Begginer', 'Pre-Intermediate', 'Intermediate', 'Upper-Intermediate', 'Advanced']
-        return level
+    def list_levels(self):
+        levels = ['Begginer', 'Pre-Intermediate', 'Intermediate', 'Upper-Intermediate', 'Advanced']
+        return levels
 
     def custom_level(self):
         # This select a random level from the list and return it
