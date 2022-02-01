@@ -1,0 +1,10 @@
+autoenv==1.0.0
+Django~=4.0.1
+django-dynamic-fixture==3.1.2
+django-environ==0.8.1
+environ==1.0
+factory-boy==3.2.1
+Faker==11.3.0
+psycopg2==2.9.3
+pytest==6.2.5
+pytest-django==4.5.2
