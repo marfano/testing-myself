@@ -1,12 +1,5 @@
 import pytest
 
-from apps.person.models import Student
-
-# Testing pytest
-@pytest.mark.django_db # Set up access to db
-def test_example_starting():
-    assert 2 + 2 == 4 # test confirmation
-
 # Test Student model 
 @pytest.mark.django_db # Set up access to db
 def test_student_creation(student_creation):
