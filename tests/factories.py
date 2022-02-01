@@ -1,7 +1,7 @@
 import pytest
 import factory
 
-from apps.person.models import Student, teacher
+from apps.person.models import Student, Teacher
 
 class StudentFactory(factory.Factory):  
     class Meta:

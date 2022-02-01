@@ -55,3 +55,19 @@ class Student(Person):
         """"Unicode representation of Student"""
         text = "{0} {1}"
         return text.format(self.name, self.last_name)
+
+
+class Teacher(Person):
+    """Model definition for Teacher"""
+   
+    class Meta:
+        """Meta definition for Teacher"""
+        db_table = 'teachers'
+        verbose_name = 'Teacher'
+        verbose_name_plural = 'Teachers'
+        ordering = ['name'] # alphabetic order
+
+    def ___str__(self):
+        """"Unicode representation of Teacher"""
+        text = "{0} {1}"
+        return text.format(self.name, self.last_name)

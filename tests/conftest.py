@@ -1,12 +1,12 @@
 import pytest
 
-from .factories import StudentFactory, tEACHERfACTORY
+from .factories import StudentFactory, TeacherFactory
 
 @pytest.fixture
 def student_creation():
-    return StudentFactory.build() # build makes an only one instance
+    return StudentFactory.build() 
 
 
 @pytest.fixture
 def teacher_creation():
-    return TeacherFactory.build() # build makes an only one instance
+    return TeacherFactory.build()
