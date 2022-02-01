@@ -7,7 +7,7 @@ from apps.person.models import Student
 def test_example_starting():
     assert 2 + 2 == 4 # test confirmation
 
-# Adding a student
+# Test Student model 
 @pytest.mark.django_db # Set up access to db
 def test_student_creation(student_creation):
     print(student_creation.name) # print on console if I run this with 'pytest -rP' 

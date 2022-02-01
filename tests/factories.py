@@ -1,7 +1,7 @@
 import pytest
 import factory
 
-from apps.person.models import Student
+from apps.person.models import Student, teacher
 
 class StudentFactory(factory.Factory):  
     class Meta:
@@ -12,4 +12,12 @@ class StudentFactory(factory.Factory):
     last_name = 'Snow'
     modality = 'Grupal'
     level = 'Intermediate'
-   
+
+
+class TeacherFactory(factory.Factory):  
+    class Meta:
+        model = Teacher
+
+    email = 'master.yoda@gimmerstick.com'
+    name = 'Master'
+    last_name = 'Yoda'
