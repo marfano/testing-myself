@@ -3,7 +3,7 @@ import pytest
 # Test Schedule model
 @pytest.mark.django_db # Set up access to db
 def test_schedule_creation(schedule_creation):
-    print(schedule_creation.name) # print on console if I run this with 'pytest -rP' 
+    print(schedule_creation.day) # print on console if I run this with 'pytest -rP' 
     schedule_creation.save()
     assert schedule_creation.day == 'Lunes' # test confirmation
 
