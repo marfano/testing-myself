@@ -13,14 +13,14 @@ class Schedule(models.Model):
     Friday = 'F'
     DAYS_OF_WEEK_CHOICES = [
         (Monday, 'Lunes'),
-        (Tuesday, 'Tuesday'),
-        (Wednesday, 'Wednesday'),
-        (Thursday, 'Thursday'),
-        (Friday, 'Friday'),
+        (Tuesday, 'Martes'),
+        (Wednesday, 'Miércoles'),
+        (Thursday, 'Jueves'),
+        (Friday, 'Viernes'),
     ]
 
     # Hs of day to choice
-    HS_OF_DAY_CHOICES = [(x, f'{x}.00') for x in range(9,20)]
+    HS_OF_DAY_CHOICES = [(f'{x}', f'{x}.00') for x in range(9,20)]
 
     # The fields
     day = models.CharField(max_length=20, choices = DAYS_OF_WEEK_CHOICES, default = None) 

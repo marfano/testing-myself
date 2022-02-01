@@ -1,13 +1,14 @@
 import pytest
+from faker import Faker
 
-from apps.person.models import Teacher
+fake = Faker()
 
-# Test Teacher model
+# 2) Adding a teacher
 @pytest.mark.django_db # Set up access to db
 def test_teacher_creation(teacher_creation):
     print(teacher_creation.name) 
     teacher_creation.save()
-    assert teacher_creation.email == 'master.yoda@gimmerstick.com' # test confirmation
+    assert '@gmail.com' in teacher_creation.email # test confirmation
 
 
 @pytest.mark.django_db 
@@ -15,6 +16,6 @@ def test_teacher_creation_fail(teacher_creation):
     teacher_creation.save()
     with pytest.raises(Exception):
             teacher = teacher_creation(
-                name = 'Master',
-                lastName = 'Yoda'
+                name = fake.name(),
+                lastName = fake.last_name()
             ) # We are checking the exception be catch up
