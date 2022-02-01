@@ -1,0 +1,23 @@
+{% extends 'base/base.html' %}
+
+{% block titulo %}
+Cursos tentativos | Registro de Estudiantes
+{% endblock titulo %}
+
+{% block body %}
+<div class="card">
+    <div class="card-header">
+        <strong class="card-title">Registro de Estudiante</strong>
+    </div>
+    <div class="card-body">
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="">
+                <a href="{% url 'student:student_list' %}" class="btn btn-danger">CANCELAR</a>
+                <button class="btn btn-primary" type="submit">REGISTRAR</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock body %}

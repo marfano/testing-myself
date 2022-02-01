@@ -1,0 +1,37 @@
+{% extends 'base/base.html' %}
+
+{% block titulo %}
+Biblioteca.dev | Listado de Usuarios
+{% endblock titulo %}
+
+{% block body %}
+<div class="card">
+    <div class="card-header">        
+        <div class="row">
+            <div class="col-md-8">
+                <strong class="card-title">Listado de Estudiantes</strong>
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-primary" type="button">AGREGAR ESTUDIANTE</button>
+            </div>            
+        </div>
+    </div>
+    <div class="table-stats order-table ov-h">
+        <table id = "students_table" class="table" >
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Email</th>
+                    <th>Modalidad</th>
+                    <th>Nivel</th>
+                    <th>Disponibilidad</th>
+                </tr>
+            </thead>
+            <tbody>                
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock body %}

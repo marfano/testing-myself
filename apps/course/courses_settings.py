@@ -1,27 +1,27 @@
 """"Settings"""
 
 days_of_week = [
-        ('Monday', 'Lunes'),
-        ('Tuesday', 'Martes'),
-        ('Wednesday', 'Miércoles'),
-        ('Thursday', 'Jueves'),
-        ('Friday', 'Viernes'),
+        ('Lunes', 'Lunes'),
+        ('Martes', 'Martes'),
+        ('Miércoles', 'Miércoles'),
+        ('Jueves', 'Jueves'),
+        ('Viernes', 'Viernes'),
     ]
 
 min_hour = 9
 max_hour = 19
 
 levels = [
-        ('begginer', 'Begginer'),
-        ('pre_intermediate', 'Pre_Intermediate'),
-        ('intermediate', 'Intermediate'),
-        ('upper_intermediate', 'Upper-intermediate'),
-        ('advanced', 'Advanced'),
+        ('Begginer', 'Begginer'),
+        ('Pre-Intermediate', 'Pre-Intermediate'),
+        ('Intermediate', 'Intermediate'),
+        ('Upper-Intermediate', 'Upper-Intermediate'),
+        ('Advanced', 'Advanced'),
     ]
 
 modalities =  [
-        ('individual', 'Individual'),
-        ('grupal', 'Grupal'),
+        ('Individual', 'Individual'),
+        ('Grupal', 'Grupal'),
     ]
 
 group_capacity = 6

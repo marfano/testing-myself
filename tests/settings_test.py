@@ -17,13 +17,13 @@ def test_settings_creation(settings_creation):
     print(settings_creation.min_hour) 
 
     ## Test confirmations
-    assert ('Monday', 'Lunes') in settings_creation.days_of_week  
+    assert ('Lunes', 'Lunes') in settings_creation.days_of_week  
 
     assert type(settings_creation.min_hour) is int
     assert type(settings_creation.max_hour) is int
 
-    assert ('intermediate', 'Intermediate') in settings_creation.levels    
-    assert ('individual', 'Individual') in settings_creation.modalities
+    assert ('Intermediate', 'Intermediate') in settings_creation.levels    
+    assert ('Individual', 'Individual') in settings_creation.modalities
     
     assert type(settings_creation.group_capacity) is int
     assert type(settings_creation.tolerance) is int
