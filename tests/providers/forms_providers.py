@@ -24,3 +24,15 @@ class FormStudentProvider(BaseProvider):
             'level': fake.custom_level(),
             'disponibility': [ ],}
         return form_data
+
+
+
+class FormTeacherProvider(BaseProvider):
+
+    def form_data(self):
+        form_data = {
+            'email': fake.custom_email(),
+            'name': fake.name(),
+            'last_name': fake.last_name(),
+            'disponibility': [ ],}
+        return form_data
