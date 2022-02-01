@@ -10,6 +10,7 @@ fake.add_provider(HourProvider)
 # Test Schedule model
 @pytest.mark.django_db # Set up access to db
 def test_schedule_creation(schedule_creation):
+    """The schedule is created properly"""
     print(schedule_creation.day) # print on console if I run this with 'pytest -rP' 
     schedule_creation.save()
     

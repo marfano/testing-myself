@@ -1,6 +1,6 @@
 import pytest
 
-from .factories import StudentFactory, TeacherFactory, ScheduleFactory
+from .factories import StudentFactory, TeacherFactory, ScheduleFactory, CourseFactory
 
 @pytest.fixture
 def student_creation():
@@ -14,3 +14,7 @@ def teacher_creation():
 @pytest.fixture
 def schedule_creation():
     return ScheduleFactory.build()
+
+@pytest.fixture
+def course_creation():
+    return CourseFactory.create_course()

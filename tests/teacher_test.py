@@ -6,7 +6,8 @@ fake = Faker()
 # 2) Adding a teacher
 @pytest.mark.django_db # Set up access to db
 def test_teacher_creation(teacher_creation):
-    print(teacher_creation.name) 
+    """The teacher is created properly"""
+    print(teacher_creation) 
     teacher_creation.save()
     assert '@gmail.com' in teacher_creation.email # test confirmation
 

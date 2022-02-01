@@ -1,10 +1,13 @@
 import pytest
 from faker import Faker
 import factory
-from ddf import F
+from ddf import G,F
+
+from faker.providers import BaseProvider
 
 from apps.person.models import Student, Teacher
 from apps.schedule.models import Schedule
+from apps.course.models import Course
 
 fake = Faker()
 
@@ -44,4 +47,12 @@ class TeacherFactory(factory.Factory):
     email = fake.custom_email()
     name = fake.name()
     last_name = fake.last_name()
+
+
+class CourseFactory(factory.Factory):  
+    class Meta:
+        model = Course
+
+    def create_course():
+        return G(Course, teacher=F(), schedule=F(day=fake.custom_day(), hour=fake.custom_hour())) 
 
