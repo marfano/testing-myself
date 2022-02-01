@@ -1,5 +1,5 @@
-import factory
 import pytest
+import factory
 
 from apps.person.models import Student
 
@@ -10,6 +10,6 @@ class StudentFactory(factory.Factory):
     email = 'john.snow@stark.com'
     name = 'John'
     last_name = 'Snow'
-    disponibility = [{'Martes': '9.00'}, {'Miércoles': '15.00'}]
-    level = 'Intermediate'
     modality = 'Grupal'
+    level = 'Intermediate'
+   
