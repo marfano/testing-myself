@@ -10,7 +10,7 @@ class Person(models.Model):
     email = models.CharField('Email', max_length= 200, null = False, blank = False)
     name = models.CharField('Nombre', max_length= 200, blank = False, null = False)
     last_name = models.CharField('Apellido', max_length = 220, blank = False, null = False)
-    disponibility = models.ManyToManyField(Schedule, null = True, blank = True)
+    disponibility = models.ManyToManyField(Schedule, blank = True, null = True)
 
     class Meta:        
         abstract = True
@@ -36,7 +36,7 @@ class Student(Person):
 
 
 class Teacher(Person):
-    """Model definition for Teacher"""
+    """Model definition for Teacher - type of Person"""
    
     class Meta:
         """Meta definition for Teacher"""

@@ -3,10 +3,9 @@
 <body>
     <div>
         <ul>
-            <li><a href="">Principal</a></li>
-            <li><a href="{% url 'student_list' %}">Estudiantes</a></li>
-            <li><a href="{% url 'teacher_list' %}">Docentes</a></li>
-            <li><a href="{% url 'student_list' %}">Cursos</a></li>
+            <li><a href="">Cursos</a></li>
+            <li><a href="{% url 'person:student_create' %}">Registrar estudiante</a></li>
+            <li><a href="{% url 'person:teacher_create' %}">Registrar docente</a></li>
         </ul>
     </div>
 </body>

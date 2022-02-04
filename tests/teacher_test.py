@@ -3,11 +3,11 @@ from faker import Faker
 
 fake = Faker()
 
-# 2) Adding a teacher
+# Testing teacher model
 @pytest.mark.django_db # Set up access to db
 def test_teacher_creation(teacher_creation):
     """The teacher is created properly"""
-    print(teacher_creation) 
+    # print(teacher_creation) # Returns: Teacher object
     teacher_creation.save()
     assert '@gmail.com' in teacher_creation.email # test confirmation
 

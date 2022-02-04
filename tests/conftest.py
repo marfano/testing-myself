@@ -1,11 +1,12 @@
 import pytest
 
-from .factories import StudentFactory, TeacherFactory, ScheduleFactory, CourseFactory, settings_setup
+from .factories import *
+
+# This <test>.py doc works first
 
 @pytest.fixture
 def student_creation():
     return StudentFactory.build() 
-
 
 @pytest.fixture
 def teacher_creation():

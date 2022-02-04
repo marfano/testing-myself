@@ -1,0 +1,86 @@
+{% extends 'base/base.html' %}
+
+{% block titulo %}
+Cursos tentativos | Registro de Docentes
+{% endblock titulo %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <strong class="card-title">Registro de Docente</strong>
+    </div>
+    <div class="card-body">
+
+        <form  id="form-teacher" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div>
+
+                <button>
+                    <a href="{% url 'schedule:schedule_create' %}">Agregar horario</a>
+                </button>
+                
+                <button onclick="SaveData()">
+                    Guardar
+                </button>
+            </div>
+        </form>
+        <ul id="ul-teacher">
+            {% for teacher in teachers  %}
+              <li>{{ teacher.name }} {{ teacher.last_name }} - {{ teacher.email }}</li>
+              <button><a href="{% url 'person:teacher_update' pk=teacher.id %}">Editar</a></button>
+              <button><a href="{% url 'person:teacher_delete' pk=teacher.id %}">Eliminar</a></button>
+            {% endfor %}
+        </ul>
+
+    </div>
+</div>
+
+{% endblock content %}
+
+{% block extrajs %}
+<script>
+    function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    // Ajax to cath and shows the list more efficiently - async work
+    function SaveData() {
+        var form = new FormData(document.getElementById('form-teacher'));
+        var list = document.getElementById('ul-teacher');
+        //
+        fetch("teacher_create/", {
+            method: "POST",
+            body: form,
+            headers: {
+                "X-CSRFToken": getCookie('csrftoken'),
+                "X-Requested-With": "XMLHttpRequest"
+            }
+        }).then(
+            function(response) {
+                return response.json()
+            }
+        ).then(
+            function(data) {
+                array_t = data.teachers;
+                var li = document.createElement('li');
+                li.innerHTML = array_t[array_t.length - 1].name +  array_t[array_t.length - 1].last_name  + array_t[array_t.length - 1].email 
+                //
+                list.appendChild(li);
+            }
+        )
+    } 
+</script>
+{% endblock extrajs %}

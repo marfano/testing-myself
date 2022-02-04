@@ -7,7 +7,7 @@ fake = Faker()
 @pytest.mark.django_db # Set up access to db
 def test_student_creation(student_creation):
     """The student is created properly"""
-    print(student_creation.name) # print on console if I run this with 'pytest -rP' 
+    # print(student_creation.name) # print on console if I run this with 'pytest -rP' 
     student_creation.save()
     assert '@gmail.com' in student_creation.email  # test confirmation
 
@@ -20,6 +20,6 @@ def test_student_creation_fail(student_creation):
             last_name = fake.last_name()
         ) # We are checking the exception be catch up
             # This test pass
-            # 
+            
   
            

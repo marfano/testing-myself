@@ -1,0 +1,87 @@
+{% extends 'base/base.html' %}
+
+{% load bootstrap %}
+
+{% block titulo %}
+Cursos tentativos | Listado de cursos
+{% endblock titulo %}
+
+{% block content %}
+
+
+<form method="GET">
+    <div>
+        <td>
+
+            <label>Nivel</label>
+            <input list="levels" name="level" /></label>
+            <datalist id="levels">
+                <option value="Begginer">
+                <option value="Pre-Intermediate">
+                <option value="Intermediate">
+                <option value="Upper-Intermediate">
+                <option value="Advanced">
+            </datalist>
+
+            <label>Modalidad</label>
+            <input list="modalities" name="modality" /></label>
+            <datalist id="modalities">
+                <option value="Individual">
+                <option value="Grupal">
+            </datalist>
+
+
+            <label>Máxima capacidad de grupo</label>
+            <input type="number" class="form-control" name="capacity">
+
+            <label>Horario</label>
+            <input list="schedules" name="schedule" /></label>
+            <datalist id="schedules">
+                
+                {% for schedule in schedules%}
+                    <option value="{{ schedule }}">
+                {% endfor %}
+            </datalist>
+
+            <label>Márgen de horario</label>
+            <input type="number" class="form-control" name="tolerance">
+
+
+        </td>
+        <td>
+            <button type="submit">Matchear!</button>
+        </td>
+
+    </div>
+
+</form>
+    
+
+    <ul id="ul-student">
+        <strong>Estudiantes</strong>
+        {% for student in entity %}
+            <li>{{ student.name }} {{ student.last_name }} es {{ student.level }} y está disponible el día {{ filter.qs.disponibility }} a las {{ student.disponibility.hour }} </li> 
+        {% endfor %}
+    </ul>
+
+    <div>
+        {% include 'base/paginator.html' %}
+    </div>
+
+    <ul id="ul-student-extra">
+        <strong>Estudiantes a confirmar</strong>
+        {% for student in gap %}
+            <li>{{ student.name }} {{ student.last_name }} es {{ student.level }} y está disponible el día {{ filter.qs.disponibility }} a las {{ student.disponibility.hour }} </li> 
+        {% endfor %}
+    </ul>
+
+
+    <ul id="ul-teacher">
+        <strong>Docentes disponibles</strong>
+        {% for teacher in teachers %}
+            <li>{{ teacher.name }} {{ teacher.last_name }}</li> 
+        {% endfor %}
+    </ul>
+
+
+{% endblock content %}

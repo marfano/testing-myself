@@ -11,7 +11,7 @@ fake.add_provider(HourProvider)
 @pytest.mark.django_db # Set up access to db
 def test_schedule_creation(schedule_creation):
     """The schedule is created properly"""
-    print(schedule_creation.day) # print on console if I run this with 'pytest -rP' 
+    #print(schedule_creation.day) # print something like 'Viernes'
     schedule_creation.save()
     
     assert schedule_creation.day in fake.list_days() # test confirmation
@@ -25,3 +25,4 @@ def test_schedule_creation_fail(schedule_creation):
                 day = fake.custom_day(),
                 hour = fake.custom_hour()
             ) # We are checking the exception be catch up
+

@@ -44,7 +44,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps.person',
     'apps.course',
-    'apps.schedule'
+    'apps.schedule',
+    'django_filters',
+    'bootstrapform'
 ]
 
 MIDDLEWARE = [

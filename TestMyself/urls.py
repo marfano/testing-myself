@@ -1,5 +1,4 @@
 """TestMyself URL Configuration
-
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.0/topics/http/urls/
 Examples:
@@ -18,5 +17,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('apps.person.urls')),
+    path('', include('apps.course.urls', namespace='course')),
+    path('person/', include('apps.person.urls', namespace='person')),
+    path('schedule/', include('apps.schedule.urls', namespace='schedule')),
 ]

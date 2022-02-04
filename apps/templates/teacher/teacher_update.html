@@ -1,0 +1,26 @@
+{% extends 'base/base.html' %}
+
+{% block titulo %}
+Cursos tentativos | Registro de docentes
+{% endblock titulo %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        <strong class="card-title">Actualizar docente</strong>
+    </div>
+    <div class="card-body">
+
+        <form  id="form-teacher" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div>
+
+                <button type="submit">Actualizar docente</button>
+            </div>
+        </form>
+    </div>
+    
+</div>
+
+{% endblock content %}

@@ -1,40 +1,34 @@
 {% extends 'base/base.html' %}
 
 {% block titulo %}
-Cursos tentativos | Registro de Estudiantes
+Cursos tentativos | Registro de Horarios
 {% endblock titulo %}
 
 {% block content %}
-<div class="card">
-    <div class="card-header">
-        <strong class="card-title">Registro de Estudiante</strong>
-    </div>
-    <div class="card-body">
 
-        <form  id="form-student" method="POST">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <div>
-                
-                <button onclick="SaveData()">
-                    Guardar
-                </button>
+<div>
 
-            </div>
-        </form>
-        <ul id="ul-student">
-            {% for student in students  %}
-              <li>{{ student.name }} {{ student.last_name }} - {{ student.email }}</li> 
-              <button><a href="{% url 'person:student_update' pk=student.id %}">Editar</a></button>
-              <button><a href="{% url 'person:student_delete' pk=student.id %}">Eliminar</a></button>
-            {% endfor %}
-        </ul>
+    <form  id="form-schedule" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div>
 
-    </div>
+            <button>
+                <a href="{% url 'person:student_create' %}">Volver</a>
+            </button>
+            <button onclick="SaveData()">
+                Guardar
+            </button>
 
-    
+        </div>
+    </form>
+    <ul id="ul-schedule">
+        {% for schedule in schedules  %}
+            <li>{{ schedule.day }} - {{ schedule.hour }}</li> 
+            <button><a href="{% url 'schedule:schedule_delete' pk=schedule.id %}">Eliminar</a></button></button>
+        {% endfor %}
+    </ul>
 </div>
-
 {% endblock content %}
 
 {% block extrajs %}
@@ -57,10 +51,10 @@ Cursos tentativos | Registro de Estudiantes
 
     // Ajax to cath and shows the list more efficiently - async work
     function SaveData() {
-        var form = new FormData(document.getElementById('form-student'));
-        var list = document.getElementById('ul-student');
+        var form = new FormData(document.getElementById('form-schedule'));
+        var list = document.getElementById('ul-schedule');
         //
-        fetch("student_create/", {
+        fetch("schedule_create/", {
             method: "POST",
             body: form,
             headers: {
@@ -74,9 +68,9 @@ Cursos tentativos | Registro de Estudiantes
         ).then(
             function(data) {
                 console.log('response');
-                array_s = data.students;
+                array_s = data.schedules;
                 var li = document.createElement('li');
-                li.innerHTML = array_s[array_s.length - 1].name +  array_s[array_s.length - 1].last_name  + array_s[array_s.length - 1].email 
+                li.innerHTML = array_s[array_s.length - 1].day +  array_s[array_s.length - 1].hour ;
                 //
                 list.appendChild(li);
             }

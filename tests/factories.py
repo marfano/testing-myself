@@ -23,14 +23,13 @@ fake.add_provider(HourProvider)
 class ScheduleFactory(factory.Factory):  
     class Meta:
         model = Schedule
-    
+    id = fake.random_digit()
     day = fake.custom_day()
     hour = fake.custom_hour()
 
 class StudentFactory(factory.Factory):  
     class Meta:
         model = Student
-    
     email = fake.custom_email()
     name = fake.name()
     last_name = fake.last_name()
@@ -41,7 +40,6 @@ class StudentFactory(factory.Factory):
 class TeacherFactory(factory.Factory):  
     class Meta:
         model = Teacher
-    
     email = fake.custom_email()
     name = fake.name()
     last_name = fake.last_name()
@@ -50,10 +48,8 @@ class TeacherFactory(factory.Factory):
 class CourseFactory(factory.Factory):  
     class Meta:
         model = Course
-
     def create_course():
         return G(Course, teacher=F(), schedule=F(day=fake.custom_day(), hour=fake.custom_hour())) 
 
 def settings_setup():  
     return Settings
-
