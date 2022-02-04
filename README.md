@@ -158,4 +158,8 @@ _Made-in:_
 
 
 ---
+<<<<<<< HEAD
 ⌨️ con ❤️ por [marfano](https://github.com/marfano) 😊
+=======
+⌨️ con ❤️ por [marfano](https://github.com/marfano) 😊
+>>>>>>> 9903063d5ad51a51e5645b168730ea69a0f659e7
