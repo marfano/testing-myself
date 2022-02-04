@@ -140,6 +140,23 @@ Puedes encontrar mucho más de cómo funciona este proyecto ~~próximamente~~ en
 ![Esta es una imagen](https://media.giphy.com/media/hXCGdsSC3MKuqZv59G/giphy.gif)
 
 
+## Algo del backstage 🎬
+
+
+### Paradigma
+* El 95% es **Programación Orientada a Objectos**. 
+* El *filtrado* de cursos resultó más óptimo mixeando con programación imperativa.
+
+### Clases, objetos y modelos
+* Los objetos planteados son Estudiante/Student, Docente/Teacher, Horario/Schedule, Curso/Course.
+* Django trabaja con el MVC tendiendo al vista-template. 
+* Caso: Manejé las **vistas** como clases, donde ocurre la lógica. En el **template** solo hay visualización.
+
+### Next steps
+* Los cursos están planteados -sobretodo- para continuaciones. Siguiente paso: crear el curso? 👀
+* Las course_settings deberían ser configurables.
+* PD: este código pide refactoring.
+
 ## Autores ✒️
 
 _Made-in:_
@@ -148,7 +165,7 @@ _Made-in:_
 * **Juani Villarejo** - *Kata-maker* - [jvillarejo](https://github.com/jvillarejo)
 
 
-## Expresiones de Gratitud 🎁
+## Esa gratitud del final 🎁
 
 * A mi hermana por los buenos mates cebados 🧡
 * Invitando a quienquiera hablar de Django y POO a una 🍺 o un café ☕ 
