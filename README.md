@@ -135,7 +135,7 @@ _Principales herramientas_
 
 ## Wiki 📖
 
-Puedes encontrar mucho más de cómo funciona este proyecto ~~próximamente~~ en esta [Wiki]() muy betha
+Podés encontrar mucho más de cómo funciona este proyecto ~~actualizándose~~ en la muy betha carpeta `/documentation` 
 
 ![Esta es una imagen](https://media.giphy.com/media/hXCGdsSC3MKuqZv59G/giphy.gif)
 
